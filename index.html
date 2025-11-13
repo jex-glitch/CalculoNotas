@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRS — Calculadora de Nota Mínima</title>
+    <link rel="stylesheet" href="CSS/estilo.css"> <!-- Hoja de estilos -->
+</head>
+<body>
+    <header>
+        <h1>Documento SRS — Calculadora de Nota Mínima</h1>
+      
+      <!-- Menu de navegacion -->
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#informacion">Información General</a></li>
+                <li><a href="#alcance">Alcance</a></li>
+                <li><a href="#actores">Actores</a></li>
+                <li><a href="#reglas">Reglas y Fórmulas</a></li>
+                <li><a href="#requisitos">Requisitos</a></li>
+                <li><a href="#interfaces">Interfaces</a></li>
+                <li><a href="#casos">Casos de Prueba</a></li>
+                <li><a href="#limitaciones">Limitaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+      <!-- Informacion general -->
+        <section id="informacion">
+            <h2>1. Información General</h2>
+            <p><strong>Nombre del sistema:</strong> Calculadora de Nota Mínima</p>
+            <p><strong>Tipo:</strong> Aplicación web estática (HTML, CSS y JavaScript)</p>
+            <p><strong>Propósito:</strong> Calcular la nota mínima que el estudiante debe obtener en el tercer corte para alcanzar una nota final mínima de 3.0.</p>
+
+            <h3>Archivos principales</h3>
+            <ul>
+                <li><strong>Examen/Interfas.html:</strong> Interfaz del usuario.</li>
+                <li><strong>Examen/proceso.js:</strong> Lógica de cálculo y validaciones.</li>
+                <li><strong>Examen/Estilo.css:</strong> Estilos visuales.</li>
+            </ul>
+        </section>
+     <!-- Alcance -->
+        <section id="alcance">
+            <h2>2. Alcance</h2>
+            <p>El sistema permite ingresar notas, calcular la nota mínima y mostrar mensajes de resultado según el desempeño. También permite limpiar los campos y navegar entre pantallas.</p>
+            <ul>
+                <li>Calcular nota mínima necesaria para aprobar.</li>
+                <li>Mostrar resultados: “Ya pasaste”, “Imposible”, o “Necesitas al menos X”.</li>
+                <li>No incluye persistencia de datos ni roles de usuario.</li>
+            </ul>
+        </section>
+      
+      <!-- Actores (tabla) -->
+        <section id="actores">
+            <h2>3. Actores</h2>
+            <table>
+                <tr><th>Actor</th><th>Descripción</th></tr>
+                <tr><td>Estudiante / Usuario</td><td>Persona que introduce las notas y consulta su nota mínima.</td></tr>
+                <tr><td>Sistema (Aplicación Web)</td><td>Ejecuta cálculos, valida y muestra los resultados.</td></tr>
+            </table>
+        </section>
+      
+      <!-- Reglas de negocio y formula principal -->
+        <section id="reglas">
+            <h2>4. Reglas de Negocio y Fórmula Principal</h2>
+            <p><strong>Pesos:</strong> C1 = 0.33, C2 = 0.33, C3 = 0.34</p>
+            <p><strong>Nota mínima deseada:</strong> 3.0</p>
+            <p><strong>Fórmula:</strong> 
+            <code>(3.0 - ((nota1 * 0.33) + (nota2 * 0.33))) / 0.34</code></p>
+
+            <h3>Casos Especiales</h3>
+            <ul>
+                <li>notaMinima > 5 → “Imposible”.</li>
+                <li>notaMinima ≤ 0 → “Ya pasaste”.</li>
+                <li>0 < notaMinima ≤ 5 → “Necesitas al menos X”.</li>
+            </ul>
+        </section>
+          
+          <!-- Requisitos funcionales -->
+        <section id="requisitos">
+            <h2>5. Requisitos Funcionales y No Funcionales</h2>
+            <h3>Requisitos Funcionales</h3>
+            <ul>
+                <li><strong>RF-001:</strong> Ingreso de notas sin recargar la página.</li>
+                <li><strong>RF-002:</strong> Cálculo de nota mínima según fórmula.</li>
+                <li><strong>RF-003:</strong> Mostrar resultado con estilo dinámico.</li>
+                <li><strong>RF-004:</strong> Botón para limpiar formulario.</li>
+                <li><strong>RF-005:</strong> Pantalla de inicio y transición fluida.</li>
+            </ul>
+          
+          <!-- Requisitos no funcionales -->
+            <h3>Requisitos No Funcionales</h3>
+            <ul>
+                <li>Rendimiento rápido (&lt;100 ms).</li>
+                <li>Compatibilidad con navegadores modernos.</li>
+                <li>Validación de datos numéricos y rango (0 a 5).</li>
+                <li>Mensajes legibles y usabilidad clara.</li>
+                <li>Seguridad básica (sin conexión externa ni almacenamiento).</li>
+            </ul>
+        </section>
+          
+          <!-- Interfaces e identificadores -->
+        <section id="interfaces">
+            <h2>6. Interfaces e Identificadores</h2>
+            <ul>
+                <li><strong>form#notas:</strong> Contiene los campos de ingreso.</li>
+                <li><strong>div#resultado:</strong> Muestra el resultado.</li>
+                <li><strong>#limpiar:</strong> Limpia formulario y resultado.</li>
+                <li><strong>#iniciar-calculadora:</strong> Muestra calculadora y oculta inicio.</li>
+            </ul>
+        </section>
+          
+          <!-- Casos de prueba -->
+        <section id="casos">
+            <h2>7. Casos de Prueba</h2>
+            <ul>
+                <li><strong>C1:</strong> Entrada válida — muestra nota requerida.</li>
+                <li><strong>C2:</strong> Ya aprobaste — muestra mensaje positivo.</li>
+                <li><strong>C3:</strong> Imposible — muestra advertencia.</li>
+                <li><strong>C4:</strong> Validación — evita valores no numéricos.</li>
+                <li><strong>C5:</strong> Limpieza — borra entradas y resultados.</li>
+            </ul>
+        </section>
+          
+          <!-- Limitaciones y suposiciones -->
+        <section id="limitaciones">
+            <h2>8. Limitaciones y Suposiciones</h2>
+            <ul>
+                <li>Notas de 0 a 5.</li>
+                <li>No incluye pesos variables.</li>
+                <li>No admite comas como separador decimal.</li>
+                <li>No aplica redondeos institucionales.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Botón hamburguesa (menu desplegable) -->
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Fondo oscuro al abrir el menú (para moviles) -->
+    <div id="overlay" class="overlay"></div>
+
+    <footer>
+        <p><small>© 2025 | Documento SRS — Calculadora de Nota Mínima | Desarrollado para uso académico</small></p>
+    </footer>
+
+    <script src="JS/script.js"></script> <!-- Archivo javaScript -->
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* ===================== VARIABLES GLOBALES ===================== */
+/* :root representa el elemento raíz (html), donde definimos variables reutilizables */
+:root {
+    --color-fondo: #0a0e16;        /* Color de fondo general de la página */
+    --color-principal: #d72638;    /* Color principal para botones, bordes y acentos */
+    --color-secundario: #1a1f2b;   /* Fondo de secciones internas o tarjetas */
+    --color-texto: #e9eef2;        /* Color del texto principal */
+    --color-azul: #1e90ff;         /* Color azul para títulos y acentos */
+    --color-acento: #ff1744;       /* Color de acento para bordes o subrayados */
+    --color-brillo: #00c9ff;       /* Color brillante para sombras o efectos */
+}
+
+/* ===================== CONFIGURACIÓN GLOBAL ===================== */
+/* Scroll suave y tipografía base */
+html {
+    scroll-behavior: smooth;       /* Suaviza el desplazamiento cuando se usan enlaces internos */
+}
+
+body {
+    margin: 0;                             /* Quita márgenes por defecto del navegador */
+    font-family: 'Poppins', sans-serif;    /* Define la tipografía de toda la página */
+    background-color: var(--color-fondo);  /* Fondo principal usando variable */
+    color: var(--color-texto);             /* Color de texto principal usando variable */
+    line-height: 1.7;                      /* Altura de línea para mejorar legibilidad */
+}
+
+/* ===================== ENCABEZADO ===================== */
+header {
+  /* Degradado de fondo del header */
+    background: linear-gradient( 
+        90deg,
+        #0a0e16 0%,     
+        #1a1f2b 40%,    
+        #2a1216 80%,    
+        #3b0d12 100%    
+    );                              
+    color: var(--color-texto);                         /* Color de texto del header */
+    text-align: center;                                /* Centra los elementos dentro del header */
+    padding: 1.5rem;                                   /* Espaciado interno */
+    border-bottom: 3px solid var(--color-principal);   /* Línea inferior decorativa */
+    box-shadow: 0 0 20px rgba(0, 201, 255, 0.25);      /* Sombra para dar profundidad */
+    transition: background 0.8s ease-in-out;           /* Transición suave si cambia el fondo */
+}
+
+/* Estilo de títulos principales en el header */
+h1 {
+    color: var(--color-brillo);                      /* Color brillante */
+    text-shadow: 0 0 20px rgba(0, 201, 255, 0.7);    /* Sombra luminosa */
+    letter-spacing: 1px;                             /* Espaciado entre letras */
+}
+
+/* ===================== BARRA DE NAVEGACIÓN ===================== */
+nav {
+  /* Degradado del nav */
+    background: linear-gradient(
+        90deg,
+        #0a0e16 0%,       
+        #1a1f2b 40%,      
+        #2a1216 70%,      
+        #3b0d12 100%      
+    );                                      
+    padding: 0.7rem 0;                                 /* Espaciado interno vertical */
+    border-bottom: 1px solid rgba(255, 23, 68, 0.25);  /* Línea inferior tenue */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);         /* Sombra para profundidad */
+    transition: background 0.8s ease-in-out;           /* Suaviza cambios de fondo */
+}
+
+/* Lista de enlaces dentro del nav */
+.nav-menu {
+    display: flex;                         /* Flexbox para alinear horizontalmente */
+    flex-wrap: wrap;                       /* Permite que los items se ajusten si no caben en línea */
+    justify-content: center;               /* Centra horizontalmente */
+    list-style: none;                      /* Quita los puntos de lista por defecto */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0.4rem;                       /* Separación entre items de la lista */
+}
+
+/* Estilo de los enlaces */
+.nav-menu a {
+    color: var(--color-texto);                                                       /* Color del texto de los enlaces */
+    text-decoration: none;                                                           /* Quita subrayado */
+    background: linear-gradient(90deg, var(--color-principal), var(--color-azul));   /* Degradado de botón */
+    padding: 0.6rem 1rem;                                                            /* Espaciado interno */
+    border-radius: 25px;                                                             /* Bordes redondeados */
+    transition: all 0.4s ease;                                                       /* Animación suave al hover */
+    box-shadow: 0 0 10px rgba(0, 201, 255, 0.2);                                     /* Sombra ligera */
+}
+
+.nav-menu a:hover {
+    transform: scale(1.1);                          /* Agranda un poco al pasar mouse */
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.6);    /* Sombra más intensa */
+}
+
+/* ===================== CONTENIDO PRINCIPAL ===================== */
+main {
+    max-width: 950px;                               /* Ancho máximo del contenido */
+    margin: 2rem auto;                              /* Centrado horizontal y margen vertical */
+    background-color: var(--color-secundario);      /* Fondo de sección principal */
+    padding: 2rem;                                  /* Espaciado interno */
+    border-radius: 15px;                            /* Bordes redondeados */
+    box-shadow: 0 0 25px rgba(30, 144, 255, 0.2);   /* Sombra para dar profundidad */
+}
+
+section {
+    margin-bottom: 2rem;                            /* Separación entre secciones */
+    border-left: 3px solid var(--color-brillo);     /* Línea vertical decorativa */
+    padding-left: 1rem;                             /* Espaciado desde la línea */
+}
+
+h2 {
+    color: var(--color-azul);                       /* Color de títulos secundarios */
+    border-bottom: 2px solid var(--color-acento);   /* Línea inferior como acento */
+    padding-bottom: 0.3rem;                         /* Espaciado debajo del título */
+}
+
+table {
+    width: 100%;                                    /* Ocupa todo el ancho disponible */
+    border-collapse: collapse;                      /* Une los bordes de celdas */
+    background-color: #151820;                      /* Fondo de la tabla */
+    border-radius: 10px;                            /* Bordes redondeados */
+    overflow: hidden;                               /* Evita que contenido sobresalga */
+}
+
+th, td {
+    border: 1px solid #2b2f3a;                      /* Bordes de celdas */
+    padding: 10px;                                  /* Espaciado interno */
+    text-align: left;                               /* Alineación del texto */
+}
+
+th {
+    background-color: var(--color-principal);       /* Fondo del encabezado */
+    color: white;                                   /* Color del texto del encabezado */
+}
+
+/* ===================== PIE DE PAGINA ===================== */
+footer {
+    text-align: center;                             /* Centra el contenido del pie de pagina */
+    padding: 1rem;                                  /* Espaciado interno */
+    background-color: #10131a;                      /* Fondo oscuro */
+    color: #bbb;                                    /* Color de texto gris claro */
+    border-top: 2px solid var(--color-principal);   /* Línea superior decorativa */
+}
+
+/* ===================== SELECCIÓN DE TEXTO ===================== */
+::selection {
+    background-color: var(--color-azul);            /* Color de fondo al seleccionar texto */
+    color: white;                                   /* Color del texto al seleccionarlo */
+}
+
+/* ===================== BOTÓN HAMBURGUESA ===================== */
+.hamburger {
+    display: none;                                          /* Oculto por defecto */
+    flex-direction: column;                                 /* Columnas verticales */
+    justify-content: space-between;                         /* Espaciado entre barras */
+    width: 28px;                                            /* Ancho del boton */
+    height: 28px;                                           /* Alto del boton */
+    background: rgba(15, 20, 30, 0.6);                      /* Fondo semi-transparente */
+    border: 1px solid var(--color-brillo);                  /* Borde brillante */
+    border-radius: 8px;                                     /* Bordes redondeados */
+    cursor: pointer;                                        /* Cursor tipo mano */
+    position: fixed;                                        /* fija el boton en la pantalla, nonse mueve al hacer scroll */
+    right: 5px;                                             /* lo posiciona a 5px del borde derecho de la pantalla */
+    bottom: 30px;                                           /* Posición en pantalla a 30px del borde inferior */
+    z-index: 2002;                                          /* Sobre otros elementos */
+    padding: 8px;                                           /* Espacio interno */
+    backdrop-filter: blur(4px);                             /* Difumina fondo detrás del botón */
+    transition: background 0.3s ease, transform 0.2s ease;  /* Animaciones suaves */
+}
+
+.hamburger:hover {
+    background: rgba(15, 20, 30, 0.9);              /* Fondo más oscuro al pasar mouse */
+    transform: scale(1.1);                          /* Aumenta el tamaño ligeramente */
+}
+
+.hamburger span {
+    display: block;                                /* Se comporta como bloque para poder definir tamaño */
+    height: 3px;                                   /* Alto */
+    width: 100%;                                   /* Ancho */
+    background: var(--color-brillo);               /* Color de las barras */
+    border-radius: 3px;                            /* Bordes redondeados */
+    transition: all 0.3s ease;                     /* Animacion suave */
+}
+
+/* Animación al activar el botón (convertir en X) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;                                     /* Oculta la barra central */
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===================== MENÚ DESPLEGABLE EN MÓVILES ===================== */
+.nav-menu.active {
+    display: flex;                                  /* Se muestra como flexbox al activar */
+    flex-direction: column;                         /* Items en columna */
+    align-items: center;                            /* Centrado horizontal */
+    position: fixed;                                /* Fija el menu en la pantalla */
+    bottom: 70px;                                   /* Lo posiciona a 70 px del borde inferior */
+    right: 20px;                                    /* Lo posiciona a 20 px del borde derecho */
+    background: rgba(15, 20, 30, 0.96);             /* Fondo semi-transparente */
+    border: 1px solid var(--color-principal);       /* Borde decorativo */
+    border-radius: 12px;                            /* Bordes redondeados */
+    box-shadow: 0 0 25px rgba(0, 201, 255, 0.35);   /* Sombra para destacar */
+    padding: 1rem;                                  /* Espaciado interno */
+    width: 230px;                                   /* Ancho del menu */
+    z-index: 2001;                                  /* Se situa encima de la mayoria de elementos, debajo del boton hamburguesa */
+    animation: aparecer 0.3s ease forwards;         /* Animación de entrada */
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(15px); } /* Empieza invisible y abajo */
+    to { opacity: 1; transform: translateY(0); }      /* Termina visible en posición */
+}
+
+.nav-menu.active li {
+    margin: 0.6rem 0;                               /* Separación entre opciones */
+}
+
+/* ===================== OVERLAY AL ABRIR MENÚ ===================== */
+body.menu-abierto::after {
+    content: "";                                    /* Elemento visual vacio para usar como overlay */
+    position: fixed;                                /* Fija el overlay sobre toda la pantalla */
+    inset: 0;                                       /* Ocupa toda la pantalla */
+    background: rgba(0, 0, 0, 0.55);                /* Fondo semi-transparente oscuro para atenuar la pagina detras del menu */
+    backdrop-filter: blur(2px);                     /* Difumina ligerqmente contenido detrás */
+    z-index: 1000;                                  /* Se coloca debajo del menú pero encima del contenido de la pagina */
+    transition: opacity 0.3s ease;                  /* Animación suave de aparicion/desaparicion */
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {             /* Reglas que se aplican cuando el ancho de la pantalla es menor o igual a 768px */
+  /* Boton hamburguesa */
+    .hamburger {
+        display: flex;                  /* Muestra el botón en móviles (antes estaba oculto con display: none) */
+    }
+
+    .nav-menu {
+        display: none;                  /* Oculta menú horizontal en móviles (se utilizara el menu desplegable) */
+    }
+
+    nav {
+        border-bottom: none;      /* Quita la línea inferior decorativa en moviles */
+        box-shadow: none;         /* Quita la sombra para simplificar la apariencia en moviles */
+        background: transparent;  /* Hace el fondo transparente para no tapar contenido cuando el menu desplegable aparece */
+    }
+}
